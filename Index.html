@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#EDEDED">
+<meta name="description" content="Portofolio Ryan Puja: statistika, desain grafis, dan pengembangan website.">
+<title>Ryan.Puja — Portofolio</title>
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* 1. WARNA DAN PENGATURAN DASAR */
+:root{
+  --bg:#EDEDED;--clean:#F5F5F5;--card:#FFFFFF;
+  --ink:#241E22;--ink-2:#4F484C;--ink-3:#6B6569;
+  --line:rgba(36,30,34,.14);
+  --pink:#FF4F86;--pink-d:#C4204F;--dark:#2A2A2A;
+  --ease:cubic-bezier(.2,.7,.1,1);
+  --sans:"Plus Jakarta Sans",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:20px;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);font-size:15px;background:var(--clean);color:var(--ink);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body.menu-active{overflow:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+button:focus-visible,a:focus-visible{outline:2px solid var(--pink-d);outline-offset:4px}
+img,svg{display:block}
+.mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.18em;font-size:10.5px;font-weight:400}
+.wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 22px}
+
+/* 2. BANNER */
+.banner{display:flex;justify-content:center;align-items:center;gap:8px;padding:11px 16px;font-size:12.5px;color:var(--ink);background:linear-gradient(90deg,#DCE6F6,#F6E6DB);border-bottom:1px solid rgba(0,0,0,.06)}
+.banner svg{width:16px;height:16px}
+.banner b{font-weight:600}
+
+/* 3. HERO DAN BACKGROUND */
+.top{position:relative;background:var(--bg);overflow:hidden;isolation:isolate}
+.top::after{content:"";position:absolute;left:0;right:0;bottom:0;height:110px;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(245,245,245,0),var(--clean))}
+.top .wrap{position:relative;z-index:2}
+.fx{position:absolute;inset:0;z-index:0;pointer-events:none;--x:70%;--y:40%;--x2:70%;--y2:40%}
+.fx .base{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(36,30,34,.2) 1px,transparent 1.5px);background-size:7px 7px}
+.fx .trail{position:absolute;inset:0;background:radial-gradient(circle 210px at var(--x2) var(--y2),rgba(255,79,134,.26) 0%,rgba(255,79,134,.1) 55%,rgba(255,79,134,0) 100%)}
+.fx .glow{position:absolute;inset:0;opacity:.8;transition:opacity 1.6s ease;background:radial-gradient(circle 135px at var(--x) var(--y),rgba(255,79,134,.5) 0%,rgba(255,79,134,.2) 55%,rgba(255,79,134,0) 100%)}
+.fx .hot{position:absolute;inset:0;opacity:.55;transition:opacity 1.6s ease;background-image:radial-gradient(circle,var(--pink-d) 1.6px,transparent 2.1px);background-size:15px 15px;-webkit-mask-image:radial-gradient(circle 170px at var(--x) var(--y),#000 0%,transparent 100%);mask-image:radial-gradient(circle 170px at var(--x) var(--y),#000 0%,transparent 100%)}
+.top.press .glow{opacity:1}
+.top.press .hot{opacity:.8}
+
+/* 4. NAVIGASI */
+.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.logo{display:inline-flex;align-items:center;gap:10px;font-size:17px;font-weight:600;letter-spacing:-.02em}
+.logo::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ink)}
+.tools{display:flex;gap:10px}
+.round{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.75);border:1px solid rgba(0,0,0,.06);box-shadow:0 10px 24px -14px rgba(0,0,0,.35);transition:transform .4s var(--ease),background .3s}
+.round svg{width:18px;height:18px}
+.round:hover{transform:translateY(-2px);background:#fff}
+
+/* 5. HERO CONTENT */
+.hero{padding:64px 0 110px}
+.hero .mono{color:var(--ink-2);margin-bottom:20px;display:block}
+h1{font-weight:500;font-size:clamp(30px,7vw,60px);line-height:1.08;letter-spacing:-.035em;margin-bottom:20px;max-width:720px;background:linear-gradient(100deg,#241E22 45%,#6A2748 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.lede{font-size:clamp(14.5px,3.6vw,17px);font-weight:300;line-height:1.7;color:var(--ink-2);max-width:520px;margin-bottom:26px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.chips span{padding:7px 14px;border-radius:999px;border:1px solid var(--line);font-size:12.5px;background:rgba(255,255,255,.45)}
+.rise{opacity:0;transform:translateY(22px);animation:rise 1s var(--ease) forwards;animation-delay:calc(var(--d,0)*110ms)}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* 6. MENU FULLSCREEN */
+.menu{position:fixed;inset:0;z-index:20;display:flex;flex-direction:column;justify-content:center;gap:4px;padding:32px 28px;background:rgba(245,245,245,.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .4s var(--ease),visibility .4s}
+.menu-open .menu{opacity:1;visibility:visible;pointer-events:auto}
+.menu a{font-size:clamp(28px,7.5vw,44px);font-weight:500;letter-spacing:-.03em;line-height:1.15;padding:4px 0}
+.menu a:hover{color:var(--pink-d)}
+.menu .close{position:absolute;top:20px;right:22px}
+.menu small{margin-top:24px;color:var(--ink-3)}
+
+/* 7. TENTANG */
+.clean{background:var(--clean)}
+section{padding:72px 0 0}
+.label{display:block;color:var(--ink-3);margin-bottom:16px}
+.label b{color:var(--pink-d);font-weight:500}
+h2{font-weight:500;font-size:clamp(24px,5.5vw,38px);line-height:1.15;letter-spacing:-.03em;margin-bottom:28px;max-width:640px}
+.js .sr{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--d,0)*100ms)}
+.js .sr.in{opacity:1;transform:none}
+.about{display:grid;gap:32px}
+.about p{font-size:clamp(15px,3.6vw,18px);font-weight:300;line-height:1.7;letter-spacing:-.005em;color:var(--ink-2)}
+.about p em{font-style:normal;font-weight:500;color:var(--ink)}
+.fields{border-top:1px solid var(--line)}
+.fields div{padding:16px 0 12px;border-bottom:1px solid var(--line)}
+.fields dt{color:var(--ink-3);margin-bottom:6px}
+.fields dd{font-size:15.5px;font-weight:400;letter-spacing:-.005em}
+
+/* 8. KARYA */
+.works{display:grid;gap:16px}
+.w{display:block;border-radius:16px;overflow:hidden;background:var(--card);border:1px solid var(--line);transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
+a.w:hover{transform:translateY(-4px);box-shadow:0 26px 50px -36px rgba(36,30,34,.45)}
+.w .art{aspect-ratio:4/3;overflow:hidden;background:#1d1a1c}
+.w .art img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+a.w:hover .art img{transform:scale(1.04)}
+.w .meta{padding:18px 20px 22px}
+.w .top-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;color:var(--ink-3)}
+.w .go{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--ink);color:#fff}
+.w .go svg{width:15px;height:15px}
+.w h3{font-weight:500;font-size:20px;line-height:1.15;letter-spacing:-.025em;margin-bottom:8px}
+.w p{font-size:13.5px;font-weight:300;line-height:1.7;color:var(--ink-2);max-width:480px}
+.w.soon{background:none;border:1.5px dashed rgba(36,30,34,.25)}
+.w.soon h3{color:var(--ink-3)}
+
+/* 9. FOOTER */
+.closing{position:relative;margin-top:64px;background:var(--dark);color:#F0F0F0;overflow:hidden;isolation:isolate}
+.closing .dots{position:absolute;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(circle,rgba(255,255,255,.12) 1px,transparent 1.5px);background-size:16px 16px}
+.closing .wrap{position:relative;z-index:1;padding-top:48px;padding-bottom:24px}
+.closing .label{color:rgba(240,240,240,.5);margin-bottom:14px}
+.closing .label b{color:#F0F0F0}
+.closing h2{font-size:clamp(19px,4.5vw,25px);line-height:1.25;letter-spacing:-.02em;color:#F4F4F4;margin-bottom:20px;max-width:420px}
+.cta-row{margin-bottom:32px}
+.btn{display:inline-block;padding:12px 18px;border-radius:8px;border:1px solid rgba(240,240,240,.28);color:#F0F0F0;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;overflow-wrap:anywhere;transition:transform .4s var(--ease),background .3s}
+.btn:hover{transform:translateY(-2px);background:rgba(255,255,255,.08)}
+.cols{border-top:1px solid rgba(240,240,240,.16);padding-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.cols h4{color:rgba(240,240,240,.5);font-size:10px;font-weight:400;margin-bottom:6px}
+.cols a{display:flex;align-items:center;gap:6px;padding:5px 0;font-size:13.5px;font-weight:300;color:#ECECEC;width:fit-content;transition:color .3s}
+.cols a:hover{color:#fff}
+.cols a svg{width:12px;height:12px;opacity:.55}
+.copy{margin-top:28px;padding-top:16px;border-top:1px solid rgba(240,240,240,.16);color:rgba(240,240,240,.5);font-size:10px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px}
+.copy a{transition:color .3s}
+.copy a:hover{color:#fff}
+
+/* 10. TABLET DAN LAPTOP */
+@media (min-width:900px){
+  .wrap{padding:0 40px}
+  .hero{padding:110px 0 140px}
+  .about{grid-template-columns:1.15fr 1fr;gap:80px;align-items:start}
+  .works{grid-template-columns:repeat(2,1fr)}
+  .w.feature{grid-column:1/-1;display:grid;grid-template-columns:1.25fr 1fr}
+  .w.feature .art{aspect-ratio:auto;min-height:340px}
+  .w.feature .meta{display:flex;flex-direction:column;justify-content:flex-end;padding:30px}
+  .w.feature h3{font-size:28px}
+  .w.feature p{font-size:14.5px}
+}
+
+/* 11. HP KECIL */
+@media (max-width:380px){
+  .wrap{padding:0 18px}
+  .hero{padding:52px 0 90px}
+  .logo{font-size:16px}
+  .round{width:40px;height:40px}
+  .w .meta{padding:16px 18px 20px}
+  .w h3{font-size:18px}
+  .btn{padding:14px 16px;font-size:10px}
+}
+
+/* 12. PENGATURAN ANIMASI */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  .rise,.sr{opacity:1 !important;transform:none !important}
+}
+</style>
+</head>
+<body>
+
+<!-- MENU FULLSCREEN -->
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu navigasi" aria-hidden="true" inert>
+  <button class="round close" id="menuClose" type="button" aria-label="Tutup menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg>
+  </button>
+  <a href="#tentang" data-close>Tentang</a>
+  <a href="#karya" data-close>Karya</a>
+  <a href="#kontak" data-close>Kontak</a>
+  <small class="mono">Ryan.Puja — 2026</small>
+</div>
+
+<!-- BANNER -->
+<div class="banner">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+  <span>Portofolio diperbarui <b>November 2026</b></span>
+</div>
+
+<!-- HERO -->
+<div class="top" id="top">
+  <div class="fx" aria-hidden="true">
+    <div class="base"></div><div class="trail"></div><div class="hot"></div><div class="glow"></div>
+  </div>
+  <div class="wrap">
+    <nav class="nav" aria-label="Menu utama">
+      <a class="logo" href="#top" aria-label="Ryan Puja, ke atas">Ryan Puja</a>
+      <div class="tools">
+        <a class="round" href="#kontak" aria-label="Kontak">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 8l8 6 8-6"/></svg>
+        </a>
+        <button class="round" id="menuBtn" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </nav>
+    <header class="hero">
+      <span class="mono rise" style="--d:1">Portofolio</span>
+      <h1 class="rise" style="--d:2">Statistik, desain, dan website.</h1>
+      <p class="lede rise" style="--d:3">Saya berlatar belakang Statistika dan sekarang belajar desain grafis serta membuat website. Di sini ada project yang sudah saya kerjakan.</p>
+      <div class="chips rise" style="--d:5">
+        <span>Statistika</span><span>Desain grafis</span><span>Website</span>
+      </div>
+    </header>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main class="clean">
+  <div class="wrap">
+    <section id="tentang" style="padding-top:20px">
+      <span class="label mono sr"><b>01</b> &nbsp;Tentang</span>
+      <h2 class="sr">Tentang saya</h2>
+      <div class="about">
+        <p class="sr">Saya berlatar belakang <em>Statistika</em>, lalu tertarik pada desain grafis dan pembuatan website. Sekarang saya belajar membuat halaman web sedikit demi sedikit sambil mengerjakan project nyata.</p>
+        <dl class="fields sr" style="--d:1">
+          <div><dt class="mono">Latar belakang</dt><dd>Statistika</dd></div>
+          <div><dt class="mono">Sedang dipelajari</dt><dd>Desain grafis, HTML, CSS, JavaScript</dd></div>
+          <div><dt class="mono">Dipublikasikan di</dt><dd>GitHub Pages</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="karya">
+      <span class="label mono sr"><b>02</b> &nbsp;Karya</span>
+      <h2 class="sr">Project yang sudah saya kerjakan</h2>
+      <div class="works">
+        <a class="w feature sr" href="https://ryanpuja03.github.io/Undangan/Undangan.html" target="_blank" rel="noopener noreferrer">
+          <div class="art"><img src="https://ryanpuja03.github.io/Undangan/cover.jpg" alt="Sampul undangan pernikahan digital" loading="lazy"></div>
+          <div class="meta">
+            <div class="top-row mono">
+              <span>01 — Website</span>
+              <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+            </div>
+            <h3>Undangan pernikahan</h3>
+            <p>Undangan digital dengan hitung mundur, galeri foto, RSVP, dan ucapan.</p>
+          </div>
+        </a>
+        <div class="w soon sr" style="--d:1">
+          <div class="meta">
+            <div class="top-row mono"><span>02 — Segera hadir</span></div>
+            <h3>Belum diisi</h3>
+            <p>Ganti dengan project berikutnya.</p>
+          </div>
+        </div>
+        <div class="w soon sr" style="--d:2">
+          <div class="meta">
+            <div class="top-row mono"><span>03 — Segera hadir</span></div>
+            <h3>Belum diisi</h3>
+            <p>Ganti dengan project berikutnya.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="closing" id="kontak">
+  <div class="dots" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="label mono"><b>03</b> &nbsp;Kontak</span>
+    <h2>Terima kasih sudah berkunjung</h2>
+    <div class="cta-row">
+      <a class="btn" href="mailto:kadekaryandra@gmail.com" data-email>kadekaryandra@gmail.com</a>
+    </div>
+    <div class="cols">
+      <div>
+        <h4 class="mono">Di tempat lain</h4>
+        <a href="https://www.instagram.com/deyaanz_/" target="_blank" rel="noopener noreferrer">Instagram
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+        </a>
+        <a href="https://github.com/ryanpuja03" target="_blank" rel="noopener noreferrer">GitHub
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+        </a>
+      </div>
+      <div>
+        <h4 class="mono">Portofolio</h4>
+        <a href="#tentang">Tentang</a>
+        <a href="#karya">Karya</a>
+        <a href="#top">Beranda</a>
+      </div>
+    </div>
+    <div class="copy mono">
+      <span>© 2026 Ryan.Puja</span>
+      <a href="#top">Kembali ke atas ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  const root = document.documentElement;
+  const body = document.body;
+  const top = document.getElementById("top");
+  const fx = top.querySelector(".fx");
+  const menu = document.getElementById("menu");
+  const menuBtn = document.getElementById("menuBtn");
+  const menuClose = document.getElementById("menuClose");
+  const EMAIL = "kadekaryandra@gmail.com";
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Email otomatis */
+  document.querySelectorAll("[data-email]").forEach(function (a) {
+    a.href = "mailto:" + EMAIL;
+    a.textContent = EMAIL;
+  });
+
+  /* Animasi cahaya */
+  const SLOW = 0.035, SLOWER = 0.016;
+  let W = top.offsetWidth, H = top.offsetHeight;
+  let tx = W * 0.7, ty = H * 0.42;
+  let cx = tx, cy = ty, c2x = tx, c2y = ty;
+  let lastMove = -99999, last = 0;
+  let running = false, visible = true, frameId = null;
+
+  function draw() {
+    fx.style.setProperty("--x", cx.toFixed(1) + "px");
+    fx.style.setProperty("--y", cy.toFixed(1) + "px");
+    fx.style.setProperty("--x2", c2x.toFixed(1) + "px");
+    fx.style.setProperty("--y2", c2y.toFixed(1) + "px");
+  }
+
+  function aim(clientX, clientY) {
+    const rect = top.getBoundingClientRect();
+    const x = clientX - rect.left;
+    const y = clientY - rect.top;
+    if (x < 0 || y < 0 || x > rect.width || y > rect.height) return;
+    tx = x;
+    ty = y;
+    lastMove = performance.now();
+    if (reduce) {
+      cx = c2x = tx;
+      cy = c2y = ty;
+      draw();
+    }
+  }
+
+  function press(on) { top.classList.toggle("press", on); }
+
+  top.addEventListener("pointermove", function (e) { aim(e.clientX, e.clientY); }, { passive: true });
+  top.addEventListener("pointerdown", function (e) { aim(e.clientX, e.clientY); press(true); }, { passive: true });
+  top.addEventListener("pointerup", function () { press(false); });
+  top.addEventListener("pointercancel", function () { press(false); });
+  top.addEventListener("pointerleave", function () { press(false); });
+
+  window.addEventListener("resize", function () {
+    W = top.offsetWidth;
+    H = top.offsetHeight;
+  }, { passive: true });
+
+  function tick(now) {
+    if (!visible || reduce) {
+      running = false;
+      frameId = null;
+      return;
+    }
+    const dt = Math.min(0.05, (now - (last || now)) / 1000);
+    last = now;
+
+    if (now - lastMove > 4000) {
+      const t = now / 1000;
+      tx = W * (0.62 + 0.16 * Math.sin(t * 0.22));
+      ty = H * (0.42 + 0.1 * Math.cos(t * 0.17));
+    }
+
+    const k1 = 1 - Math.pow(1 - SLOW, dt * 60);
+    const k2 = 1 - Math.pow(1 - SLOWER, dt * 60);
+    cx += (tx - cx) * k1;
+    cy += (ty - cy) * k1;
+    c2x += (tx - c2x) * k2;
+    c2y += (ty - c2y) * k2;
+
+    draw();
+    frameId = requestAnimationFrame(tick);
+  }
+
+  function start() {
+    if (reduce || running || !visible) return;
+    running = true;
+    last = 0;
+    frameId = requestAnimationFrame(tick);
+  }
+
+  function stop() {
+    visible = false;
+    if (frameId !== null) {
+      cancelAnimationFrame(frameId);
+      frameId = null;
+    }
+    running = false;
+  }
+
+  draw();
+
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          visible = true;
+          start();
+        } else {
+          stop();
+        }
+      });
+    }, { threshold: 0 }).observe(top);
+  } else {
+    start();
+  }
+
+  /* Menu fullscreen
+     Perbaikan: fokus hanya dikembalikan ke tombol menu saat menu ditutup
+     lewat tombol Tutup atau Escape, bukan saat klik tautan menu. */
+  let menuOpen = false;
+
+  function setMenu(open, returnFocus) {
+    menuOpen = open;
+    root.classList.toggle("menu-open", open);
+    body.classList.toggle("menu-active", open);
+    menuBtn.setAttribute("aria-expanded", String(open));
+    menu.setAttribute("aria-hidden", String(!open));
+    menu.inert = !open;
+
+    if (open) {
+      menuClose.focus();
+    } else if (returnFocus) {
+      menuBtn.focus({ preventScroll: true });
+    }
+  }
+
+  menuBtn.addEventListener("click", function () { setMenu(true); });
+  menuClose.addEventListener("click", function () { setMenu(false, true); });
+
+  menu.querySelectorAll("[data-close]").forEach(function (a) {
+    a.addEventListener("click", function () { setMenu(false, false); });
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (!menuOpen) return;
+
+    if (e.key === "Escape") {
+      setMenu(false, true);
+      return;
+    }
+
+    if (e.key === "Tab") {
+      const focusable = menu.querySelectorAll("a[href], button:not([disabled])");
+      const first = focusable[0];
+      const lastItem = focusable[focusable.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        lastItem.focus();
+      } else if (!e.shiftKey && document.activeElement === lastItem) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  });
+
+  /* Animasi saat scroll */
+  const items = document.querySelectorAll(".sr");
+
+  if ("IntersectionObserver" in window) {
+    const scrollObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -30px 0px" });
+
+    items.forEach(function (el) { scrollObserver.observe(el); });
+  } else {
+    items.forEach(function (el) { el.classList.add("in"); });
+  }
+})();
+</script>
+</body>
+</html>
